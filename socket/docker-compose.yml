@@ -1,7 +1,8 @@
 version: "3"
 services:
   ubuntu:
-    image: "futafi/docker-sudo"
+    build: .
+    image: "futafi/x11-socket"
     container_name: "x11-socket"
     privileged: true
     network_mode: "host"
