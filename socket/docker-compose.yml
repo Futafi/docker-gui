@@ -1,10 +1,8 @@
 version: "3"
 services:
   ubuntu:
-    build: .
-    image: "futafi/x11-socket"
+    image: "futafi/docker-sudo"
     container_name: "x11-socket"
-    working_dir: /workdir
     privileged: true
     network_mode: "host"
     # user: '$(id -u):$(id -g)'
