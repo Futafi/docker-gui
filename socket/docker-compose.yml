@@ -1,0 +1,17 @@
+version: "3"
+services:
+  ubuntu:
+    build: .
+    image: "futafi/x11-socket"
+    container_name: "x11-socket"
+    working_dir: /workdir
+    privileged: true
+    network_mode: "host"
+    # user: '$(id -u):$(id -g)'
+    user: "${UID}:${GID}"
+    environment:
+      - DISPLAY=${DISPLAY}
+      - XAUTHORITY=${XAUTHORITY}
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - ${XAUTHORITY}:${XAUTHORITY}
